@@ -10,9 +10,29 @@ Web Authentication API简称为WebAuthn，是FIDO联盟指导下的FIDO2项目�
 
 ## How/怎么做
 
-网站 + 浏览器 + 认证器  
-https://webauthn.guide/  
-https://webauthn.me/introduction  
+![Entities](https://webauthn.me/img/1-Web-Authentication-Entities.svg)
+
+上图中包含四类实体，验证者/Authenticator、用户/User、用户代理/User Agent(e.g. Browser)、依赖方(服务方)/Relying Party，这四个实体在两个单独的用例中协同工作：注册和身份验证。图中不同实体之间的所有通信都由用户代理（通常是Web浏览器）处理。
+
+### Registration/注册
+
+注册用例：注册使用验证者创建一组新的公钥证书，可用于签署依赖方生成的质询。 这些新凭证的公共部分以及签名的质询可以发送回依赖方进行存储。 随后，依赖方可以在需要时使用这些凭证来验证用户的身份。
+
+![Registration](https://webauthn.me/img/2-Registration.svg)
+
+### Authentication/身份验证(e.g. 登录)
+
+登录用例：相反，身份验证允许依赖方向验证者发送质询。 然后可以使用先前生成的公钥证书对该挑战进行签名，并将其发送回依赖方。 这样，依赖方可以验证用户是否拥有所需的凭证，从而证明其身份。
+
+![Authentication](https://webauthn.me/img/3-Login.svg)
+
+## Glossary/名词解释
+
+## Reference/引用
+
+- [WebAuthn Guide](https://webauthn.guide/)
+
+- [WebAuthn Introduction](https://webauthn.me/introduction)
 
 ## Demo
 
